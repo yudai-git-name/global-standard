@@ -1,0 +1,72 @@
+.fvSub {
+	position: relative;
+	height: 250px;
+}
+
+.fvSub::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 380px;
+	height: 100%;
+	background-color: rgba(2, 62, 120, 0.8);
+	clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+	z-index: 5;
+}
+
+.fvSub::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(26, 26, 26, 0.2);
+}
+
+.inner {
+	height: inherit;
+}
+
+.content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+}
+
+.heading2 {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	color: var(--textColorTertiary);
+}
+
+.titleEn,
+.titleJa {
+	width: fit-content;
+	background-color: var(--bgColorPrimary);
+}
+
+.titleEn {
+	font-size: 60px;
+	line-height: calc(72 / 60);
+	font-family: var(--fontFira_Sans);
+}
+
+.titleJa {
+	font-size: 20px;
+	line-height: calc(28.96 / 20);
+	font-weight: 700;
+}
+
+.imageWrap {
+	height: inherit;
+}
+
+.image {
+	height: 100%;
+	object-fit: cover;
+}

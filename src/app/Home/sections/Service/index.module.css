@@ -1,0 +1,163 @@
+.service {
+	position: relative;
+	margin-top: 269px;
+}
+
+.service::before {
+	content: '';
+	position: absolute;
+	bottom: -200px;
+	left: 0;
+	width: 100%;
+	height: 800px;
+	background-color: var(--bgColorQuaternary);
+	clip-path: polygon(0 0, 100% 33%, 100% 100%, 0 76%);
+	z-index: -1;
+}
+
+.inner {
+	padding-inline: 20px;
+}
+
+.head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.buttonWrap {}
+
+.content {
+	margin-top: 32px;
+	padding-top: 55px;
+	/* padding-inline: 20px; */
+
+}
+
+.boxes {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: flex-start;
+	gap: clamp(2.5rem, 1.723rem + 3.31vw, 4.375rem);
+}
+
+.box {
+	position: relative;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.box:nth-child(2) {
+	margin-top: 60px;
+}
+
+.box:nth-child(3) {
+	margin-top: 120px;
+}
+
+.body {
+	position: relative;
+}
+
+.number {
+	position: absolute;
+	top: -58px;
+	right: 0;
+	font-size: 100px;
+	line-height: calc(120 / 100);
+	color: var(--textColorTertiary);
+	font-family: var(--fontFira_Sans);
+	text-stroke: 3px var(--textColorSecondary);
+	-webkit-text-stroke: 3px var(--textColorSecondary);
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+.heading3 {
+	position: absolute;
+	top: -74px;
+	left: -8%;
+	font-size: 28px;
+	font-size: clamp(1.5rem, 1.396rem + 0.44vw, 1.75rem);
+	font-weight: 700;
+	line-height: calc(40.54 / 28);
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	color: var(--textColorTertiary);
+	white-space: nowrap;
+}
+
+.box:nth-child(2) .heading3,
+.box:nth-child(3) .heading3 {
+	top: -120px;
+}
+
+.top,
+.bottom {
+	width: fit-content;
+	background-color: var(--bgColorPrimary);
+}
+
+.top {}
+
+.bottom {}
+
+.textWrap {
+	margin-top: 14px;
+}
+
+.text {}
+
+.imageWrap {}
+
+.image {}
+
+@media (max-width: 960px) {
+
+	.service::before {
+		bottom: 200px;
+	}
+
+	.boxes {
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: 40px;
+		row-gap: 60px;
+	}
+
+	.box:nth-child(2),
+	.box:nth-child(3) {
+		margin-top: 0;
+	}
+
+	.heading3 {
+		left: -3%;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.boxes {
+		column-gap: clamp(1.25rem, -3.214rem + 11.9vw, 2.5rem);
+		row-gap: 60px;
+	}
+}
+
+@media (max-width: 599px) {
+
+	.service::before {
+		height: 1253px;
+		bottom: -170px;
+		clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 94%);
+	}
+
+	.buttonWrap {
+		position: absolute;
+		bottom: -70px;
+		right: 20px;
+	}
+
+	.boxes {
+		grid-template-columns: repeat(1, 1fr);
+		row-gap: 73px;
+	}
+}

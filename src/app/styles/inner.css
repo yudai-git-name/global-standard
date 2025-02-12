@@ -1,0 +1,28 @@
+.innerXl {
+	max-width: calc(1100px + 20px * 2);
+	width: 100%;
+	margin-inline: auto;
+	padding-inline: 20px;
+}
+
+.innerL {
+	max-width: calc(768px + 20px * 2);
+	width: 100%;
+	margin-inline: auto;
+	padding-inline: 20px;
+}
+
+.innerM {
+	max-width: calc(760px + 20px * 2);
+	width: 100%;
+	margin-inline: auto;
+	padding-inline: 20px;
+}
+
+.innerS {
+	max-width: calc(688px + 20px * 2);
+	width: 100%;
+	margin-inline: auto;
+	padding-inline: 20px;
+}
+

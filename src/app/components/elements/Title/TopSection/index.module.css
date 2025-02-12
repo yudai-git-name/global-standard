@@ -1,0 +1,23 @@
+.heading2 {
+
+}
+
+.titleEn {
+	font-size: clamp(3.25rem, 2.007rem + 5.3vw, 6.25rem);
+	line-height: calc(120 / 100);
+	font-family: var(--fontFira_Sans);
+}
+
+.titleJa {
+	font-size: clamp(1rem, 0.793rem + 0.88vw, 1.5rem);
+	line-height: calc(34.75 / 24);
+	font-weight: 700;
+}
+
+.primary {
+	color: var(--textColorTertiary);
+}
+
+.secondary {
+	color: var(--textColorSecondary);
+}

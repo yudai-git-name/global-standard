@@ -1,0 +1,75 @@
+.button {
+	position: relative;
+	padding-right: 140px;
+	padding-right: clamp(6.063rem, 4.949rem + 4.75vw, 8.75rem);
+	font-size: 32px;
+	font-size: clamp(1.25rem, 0.939rem + 1.33vw, 2rem);
+	line-height: calc(38.4 / 32);
+	font-family: var(--fontFira_Sans);
+	color: var(--textColorSecondary);
+	z-index: 10;
+}
+
+.button::before {
+	content: '';
+	position: absolute;
+	top: calc(50% - 5px);
+	transform: translateY(-50%);
+	right: 10%;
+	width: 95px;
+	width: clamp(4rem, 3.197rem + 3.43vw, 5.938rem);
+	height: 10px;
+	transform: skew(45deg);
+	transition: all 0.4s ease;
+	z-index: 1;
+}
+
+.button::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 0;
+	width: 51px;
+	width: clamp(2.5rem, 2.215rem + 1.22vw, 3.188rem);
+	height: clamp(2.5rem, 2.215rem + 1.22vw, 3.188rem);
+	border-radius: 100vmax;
+}
+
+.primary {
+	color: var(--textColorSecondary);
+}
+
+.primary::before {
+	border-right: 2px solid var(--borderColorSecondary);
+	border-bottom: 2px solid var(--borderColorSecondary);
+}
+
+.primary::after {
+	border: 3px solid var(--borderColorTertiary);
+}
+
+.secondary {
+	color: var(--textColorPrimary);
+}
+
+.secondary::before {
+	border-right: 2px solid var(--borderColorQuaternary);
+	border-bottom: 2px solid var(--borderColorQuaternary);
+}
+
+.secondary::after {
+	background-color: var(--bgColorQuinary);
+}
+
+@media (max-width: 768px) {
+
+	.secondary {
+		color: var(--textColorTertiary);
+	}
+
+	.secondary::before {
+		border-right: 2px solid var(--bgColorTertiary);
+		border-bottom: 2px solid var(--bgColorTertiary);
+	}
+}
