@@ -1,0 +1,28 @@
+.breadcrumb {
+	margin-top: 13px;
+	display: flex;
+	align-items: center;
+	gap: 28px;
+}
+
+.breadcrumbItem {
+	font-size: 12px;
+	line-height: calc(17.38 / 12);
+}
+
+.link {
+	color: var(--textColorQuinary);
+}
+
+.text {
+	position: relative;
+}
+
+.text::before {
+	content: '＞';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: -20px;
+
+}

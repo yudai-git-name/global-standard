@@ -1,0 +1,153 @@
+.wrapper {
+	margin-top: 80px;
+	margin-bottom: 160px;
+	gap: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.news {}
+
+.inner {
+	max-width: 760px;
+	width: 100%;
+}
+
+.content {}
+
+.heading2 {
+	font-size: 32px;
+	line-height: calc(40 / 32);
+	font-weight: 700;
+}
+
+.boxes {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	margin-top: 27px;
+}
+
+.box {}
+
+.boxInner {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+}
+
+.body {
+	margin-top: 12px;
+	display: flex;
+	flex-direction: column-reverse;
+	max-width: calc((490 / 760) * 100%);
+	width: 100%;
+	height: 100%;
+}
+
+.heading3 {
+	font-size: 16px;
+	line-height: calc(23.17 / 16);
+	font-weight: 700;
+	margin-top: 17px;
+}
+
+.head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.categoryWrap {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	color: var(--textColorQuaternary);
+}
+
+.category {
+	display: inline-block;
+	line-height: calc(20.27 / 14);
+	border: 1px solid var(--borderColorQuinary);
+	padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.new {
+	font-size: 16px;
+	line-height: calc(23.17 / 16);
+}
+
+.date {
+	display: block;
+	line-height: calc(20.27 / 14);
+	color: var(--textColorQuinary);
+}
+
+.imageWrap {
+	max-width: calc((250 / 760) * 100%);
+	width: 100%;
+}
+
+.image {}
+
+.sideBArWrap {
+	max-width: 300px;
+	width: 100%;
+}
+
+@media (max-width: 960px) {
+
+	.wrapper {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 599px) {
+
+	.heading2 {
+		font-size: 20px;
+		line-height: calc(28.96 / 20);
+	}
+
+	.boxes {
+		margin-top: 20px;
+		gap: 20px;
+	}
+
+	.body {
+		margin-top: 0;
+		max-width: calc((203 / 335) * 100%);
+	}
+
+	.heading3 {
+		margin-top: 4px;
+		font-size: 14px;
+		line-height: calc(20 / 14);
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+		/* 任意の行数を指定 */
+	}
+
+	.category {
+		font-size: 12px;
+		line-height: calc(17.38 / 12);
+		padding: calc(4px - 1px) calc(12px - 1px);
+	}
+
+	.date {
+		font-size: 14px;
+		line-height: calc(20.27 / 14);
+	}
+
+	.imageWrap {
+		max-width: calc((120 / 335) * 100%);
+		height: 90px;
+	}
+
+	.image {
+		height: inherit;
+		object-fit: cover;
+	}
+}

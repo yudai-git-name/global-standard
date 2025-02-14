@@ -1,0 +1,48 @@
+.categoryList {
+	margin-top: 80px;
+}
+
+.inner {
+
+}
+
+.heading2 {
+	font-size: 20px;
+	line-height: calc(28.96 / 20);
+	font-weight: 700;
+}
+
+.items {
+	margin-top: 16px;
+}
+
+.item {
+
+}
+
+.item:nth-last-child(1)  .link {
+	border-bottom: 1px solid var(--borderColorSenary);
+}
+
+.link {
+	display: block;
+	padding-top: 17px;
+	padding-bottom: 16px;
+	font-size: 16px;
+	line-height: calc(23.17 / 16);
+	border-top: 1px solid var(--borderColorSenary);
+}
+
+.heading3 {
+	position: relative;
+	padding-left: 39px;
+}
+
+.icon {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	font-size: 20px;
+	color: var(--textColorTertiary);
+}

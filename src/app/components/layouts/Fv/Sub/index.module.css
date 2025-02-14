@@ -70,3 +70,21 @@
 	height: 100%;
 	object-fit: cover;
 }
+
+@media (max-width: 599px) {
+
+	.fvSub::before {
+		width: 165px;
+		clip-path: polygon(0 0, 100% 0, 10% 100%, 0 100%);
+	}
+
+	.titleEn {
+		font-size: 32px;
+		line-height: calc(38.4 / 32);
+	}
+
+	.titleJa {
+		font-size: 16px;
+		line-height: calc(23.17 / 16);
+	}
+}
