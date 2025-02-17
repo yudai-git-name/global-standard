@@ -1,0 +1,287 @@
+.case {
+	margin-top: 80px;
+	margin-bottom: 160px;
+}
+
+.inner {}
+
+.categoryButton {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 16px;
+	max-width: 656px;
+	width: 100%;
+	text-align: center;
+}
+
+.categoryButtonItem {
+	background-color: var(--bgColorDenary);
+}
+
+.button {
+	line-height: calc(20.27 / 14);
+	font-weight: 700;
+	padding-block: 12px;
+	border-radius: 4px;
+}
+
+.content {
+	margin-top: 80px;
+}
+
+.boxes {
+	display: flex;
+	flex-direction: column;
+	gap: 80px;
+}
+
+.box {}
+
+.heading2 {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding-left: 10px;
+	border-left: 8px solid var(--borderColorPrimary);
+}
+
+.heading2Ja {
+	font-size: 28px;
+	line-height: calc(40.54 / 28);
+	font-weight: 700;
+}
+
+.heading2En {
+	font-size: 16px;
+	line-height: calc(19.2 / 16);
+	font-family: var(--fontFira_Sans);
+	color: var(--textColorTertiary);
+}
+
+.cards {
+	margin-top: 66px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: clamp(2.5rem, -5.702rem + 13.38vw, 5rem);
+}
+
+.card {}
+
+.cardHead {
+	position: relative;
+	background-color: var(--bgColorTertiary);
+	color: var(--textColorSecondary);
+	border-radius: 12px 12px 0 0;
+	padding-top: 18px;
+	padding-bottom: 19px;
+}
+
+.cardHeadInner {
+	padding-inline: 40px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.business {
+	line-height: calc(20.27 / 14);
+	font-weight: 700;
+}
+
+.company {
+	font-size: 24px;
+	line-height: calc(34.75 / 24);
+}
+
+.small {
+	font-size: 16px;
+	line-height: calc(23.17 / 16);
+	margin-left: 16px;
+}
+
+.logo {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 20px;
+	height: 112px;
+	box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.16);
+	border-radius: 12px;
+}
+
+.image {
+	height: inherit;
+	border-radius: inherit;
+}
+
+.body {
+	padding: 40px 40px 38px;
+	background-color: var(--bgColorPrimary);
+	border-radius: 0 0 12px 12px;
+	box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.16);
+}
+
+.bodyHead {}
+
+.bodyHeadRow {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	border-bottom: 1px solid var(--borderColorSenary);
+	padding-bottom: 10px;
+}
+
+.bodyHeadTitle,
+.bodyHeadCategory {
+	font-size: 16px;
+	line-height: calc(23.17 / 16);
+	font-weight: 700;
+}
+
+
+.bodyDetail {
+	margin-top: 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.bodyDetailRow {}
+
+.bodyDetailTitle {
+	position: relative;
+	padding-left: 36px;
+	font-size: 18px;
+	line-height: calc(26.06 / 18);
+	font-weight: 700;
+}
+
+.icon {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	color: var(--textColorQuaternary);
+	font-size: 26px;
+}
+
+.bodyDetailText {
+	margin-top: 7px;
+}
+
+@media (max-width: 960px) {
+
+	.cardHeadInner {
+		padding-inline: 20px;
+	}
+
+	.logo {
+		right: 10px;
+		width: 112px;
+	}
+
+	.image {
+		object-fit: cover;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.cards {
+		grid-template-columns: repeat(1, 1fr);
+		max-width: 500px;
+		width: 100%;
+		margin-inline: auto;
+	}
+}
+
+@media (max-width: 599px) {
+
+	.case {
+		margin-top: 60px;
+		margin-bottom: 100px;
+	}
+
+	.categoryButton {
+		max-width: 294px;
+		grid-template-columns: repeat(1, 1fr);
+		margin-inline: auto;
+	}
+
+	.content {
+		margin-top: 60px;
+	}
+
+	.boxes {
+		gap: 60px;
+	}
+
+	.heading2 {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0;
+	}
+
+	.heading2Ja {
+		font-size: 20px;
+		line-height: calc(34.75 / 20);
+	}
+
+	.heading2En {
+		font-size: 14px;
+		line-height: calc(16.8 / 14);
+	}
+
+	.cards {
+		gap: 54px;
+		margin-top: 22px;
+	}
+
+	.cardHeadInner {
+		gap: 3px;
+	}
+
+	.business {
+		font-size: 12px;
+		line-height: calc(18 / 12);
+	}
+
+	.company {
+		font-size: 16px;
+		line-height: calc(23.17 / 16);
+	}
+
+	.small {
+		font-size: 14px;
+		line-height: calc(20.27 / 14);
+		margin-left: 12px;
+	}
+
+	.logo {
+		width: 90px;
+		height: 68px;
+		border-radius: 4px;
+	}
+
+	.image {
+		width: inherit;
+	}
+
+	.body {
+		padding: 22px 20px 16px;
+	}
+
+	.bodyDetail {
+		margin-top: 22px;
+	}
+
+	.bodyDetailTitle {
+		padding-left: 32px;
+		font-size: 16px;
+		line-height: calc(23.17 / 16);
+	}
+
+	.icon {
+		font-size: 24px;
+	}
+}

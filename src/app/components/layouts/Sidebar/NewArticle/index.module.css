@@ -33,6 +33,11 @@
 .heading3 {
 	line-height: calc(20 / 14);
 	margin-top: 8px;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	/* 任意の行数を指定 */
 }
 
 .head {
@@ -66,7 +71,7 @@
 }
 
 @media (max-width: 960px) {
-	
+
 	.sideBar {
 		margin-top: 100px;
 	}

@@ -11,7 +11,9 @@
   "dependencies": {
     "@splidejs/react-splide": "^0.7.12",
     "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
     "destyle.css": "^4.0.1",
+    "microcms-js-sdk": "^3.1.2",
     "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
