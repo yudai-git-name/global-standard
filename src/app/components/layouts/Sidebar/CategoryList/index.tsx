@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './index.module.css';
+import styles from '@/app/news/category/[id]/index.module.css';
 import Link from 'next/link';
 
 import { IoIosArrowForward } from 'react-icons/io';
@@ -17,7 +17,7 @@ export default async function SideBarCategoryList() {
           {data.contents.length > 0 ? (
             data.contents.map((item) => (
               <li key={item.id} className={styles.item}>
-                <Link href={`/category/${item.id}`} className={styles.link}>
+                <Link href={`/news/category/${item.id}`} className={styles.link}>
                   <h3 className={styles.heading3}>
                     {item.category} {/* ✅ カテゴリー名を表示 */}
                     <IoIosArrowForward className={styles.icon} />

@@ -1,10 +1,8 @@
-/* .categoryList {
+.categoryList {
 	margin-top: 80px;
 }
 
-.inner {
-
-}
+.inner {}
 
 .heading2 {
 	font-size: 20px;
@@ -16,11 +14,9 @@
 	margin-top: 16px;
 }
 
-.item {
+.item {}
 
-}
-
-.item:nth-last-child(1)  .link {
+.item:nth-last-child(1) .link {
 	border-bottom: 1px solid var(--borderColorSenary);
 }
 
@@ -45,4 +41,4 @@
 	left: 0;
 	font-size: 20px;
 	color: var(--textColorTertiary);
-} */
+}

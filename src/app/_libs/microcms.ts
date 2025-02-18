@@ -10,6 +10,12 @@ import type {
 export type News = {
   title: string;
   category: string;
+  heading2: string;
+  heading2Text: string;
+  heading3: string;
+  heading3Text: string;
+  heading4: string;
+  heading4Text: string;
   image: MicroCMSImage;
 } & MicroCMSListContent;
 
@@ -40,9 +46,24 @@ export const getNewsList = async (queries?: MicroCMSQueries) => {
   return listData;
 };
 
+// ✅ ニュース一のカテゴリーの取得
 export const getCategoryList = async () => {
   const listData = await client.getList<NewsCategory>({
     endpoint: 'news', // ✅ MicroCMS で作成したカテゴリーのエンドポイント
   });
   return listData;
 };
+
+// ✅ ニュース詳細記事の取得
+export const getNewsDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
+  const detailData = await client.getListDetail<News>({
+    endpoint: 'news',
+    contentId,
+    queries,
+  });
+  return detailData;
+};
+
