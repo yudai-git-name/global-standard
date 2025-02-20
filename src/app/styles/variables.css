@@ -8,6 +8,7 @@
 	--textColorQuinary: #888888;
 	--textColorSenary: #FFF400;
 	--textColorSeptenary: #E8E8E8;
+	--textColorOctonary: #CCCCCC;
 
 	/* background-color */
 	--bgColorPrimary: #FFFFFF;
@@ -20,6 +21,7 @@
 	--bgColorOctonary: #B0D0E5;
 	--bgColorNonary: #F8F8F8;
 	--bgColorDenary: #EEEEEE;
+	--bgColorUndenary: #E61264;
 
 	/* border */
 	--borderColorPrimary: #023E78;
@@ -30,6 +32,7 @@
 	--borderColorSenary: #DDDDDD;
 	--borderColorSeptenary: #E8EAEC;
 	--borderColorOctonary: #CCCCCC;
+	--borderColorNonary: #3E3E3E;
 
 	/* fontFamily */
 	--fontNoto_Sans_JP: sans-serif;

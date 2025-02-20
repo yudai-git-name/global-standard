@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './index.module.css';
+import styles from '@/app/news/index.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import clsx from 'clsx';
@@ -14,13 +14,30 @@ import Pagenation from '@/app/components/layouts/Pagenation';
 
 import { getNewsList } from '@/app/_libs/microcms';
 import { format } from 'date-fns';
+import { notFound } from 'next/navigation';
 import { NEWS_LIST_LIMIT } from '@/app/_contents';
 
-export default async function Page() {
-  // ✅ `totalCount` を取得
-  const { contents: news, totalCount = 0 } = await getNewsList({
+type Props = {
+  params: {
+    current: string;
+  };
+};
+
+export default async function Page({ params }: Props) {
+  const current = parseInt(params.current, 10); // ✅ 10進数で整数変換
+
+  if (Number.isNaN(current) || current < 1) {
+    notFound();
+  }
+
+  const { contents: news, totalCount } = await getNewsList({
     limit: NEWS_LIST_LIMIT,
+    offset: NEWS_LIST_LIMIT * (current - 1),
   });
+
+  if (news.length === 0) {
+    notFound();
+  }
 
   const breadcrumbItems = [{ text: 'ホーム', href: '/' }, { text: 'ニュース' }];
 
@@ -38,7 +55,7 @@ export default async function Page() {
         <section className={styles.news}>
           <div className={styles.inner}>
             <div className={styles.content}>
-              <h2 className={styles.heading2}>カテゴリ</h2>
+              <h2 className={styles.heading2}>ニュース一覧</h2>
               <div className={styles.boxes}>
                 {news.length > 0 ? (
                   news.map((item) => (
@@ -88,9 +105,11 @@ export default async function Page() {
                 )}
               </div>
             </div>
-            <Pagenation totalCount={totalCount} />
+            <Pagenation totalCount={totalCount} current={current} />
+
           </div>
         </section>
+
         <div className={styles.sideBArWrap}>
           <SideBarNewArticle />
           <SideBarCategoryList />

@@ -10,24 +10,24 @@ import Cta from '@/app/components/layouts/Cta';
 
 import SideBarNewArticle from '@/app/components/layouts/Sidebar/NewArticle';
 import SideBarCategoryList from '@/app/components/layouts/Sidebar/CategoryList';
+import Pagenation from '@/app/components/layouts/Pagenation';
 
 import { getNewsList } from '@/app/_libs/microcms';
 import { format } from 'date-fns';
+import { NEWS_LIST_LIMIT } from '@/app/_contents';
 
 type PageProps = {
   params: { id: string };
 };
 
 export default async function Page({ params }: PageProps) {
-  // ✅ `params.id` でカテゴリのIDを取得
-  const categoryId = decodeURIComponent(params.id); // 日本語カテゴリ名の場合はデコード
+  const categoryId = decodeURIComponent(params.id);
 
-  // ✅ MicroCMS API から該当カテゴリの記事を取得
-  const { contents: news } = await getNewsList({
+  const { contents: news, totalCount } = await getNewsList({
+    limit: NEWS_LIST_LIMIT,
     filters: `category[equals]${categoryId}`,
   });
 
-  // ✅ カテゴリ名を取得 (ニュースの最初の要素から取得)
   const categoryName =
     news.length > 0 ? news[0].category.name : '不明なカテゴリ';
 
@@ -51,7 +51,7 @@ export default async function Page({ params }: PageProps) {
         <section className={styles.news}>
           <div className={styles.inner}>
             <div className={styles.content}>
-              <h2 className={styles.heading2}>{categoryName}の一覧</h2>
+              <h2 className={styles.heading2}>{categoryName} のニュース</h2>
               <div className={styles.boxes}>
                 {news.length > 0 ? (
                   news.map((item) => (
@@ -101,8 +101,11 @@ export default async function Page({ params }: PageProps) {
                 )}
               </div>
             </div>
+            <Pagenation totalCount={totalCount}  basePath={`/news/category/${params.id}`} />
+
           </div>
         </section>
+
         <div className={styles.sideBArWrap}>
           <SideBarNewArticle />
           <SideBarCategoryList />
