@@ -7,7 +7,7 @@ import { getNewsList } from '@/app/_libs/microcms';
 import { format } from 'date-fns';
 
 export default async function index() {
-	const data = await getNewsList({ limit: 5 });
+  const data = await getNewsList({ limit: 5 });
   return (
     <aside className={styles.sideBar}>
       <div className={styles.newArticle}>
@@ -20,7 +20,9 @@ export default async function index() {
                   <div className={styles.body}>
                     <h3 className={styles.heading3}>{item.title}</h3>
                     <div className={styles.head}>
-                      <p className={styles.category}>{item.category}</p>
+                      <p className={styles.category}>
+                        {item.category?.name || '未分類'}
+                      </p>
                       <time
                         dateTime={item.publishedAt || ''}
                         className={styles.date}

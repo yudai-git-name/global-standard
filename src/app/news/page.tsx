@@ -1,24 +1,22 @@
 import React from 'react';
-import styles from './sections/News/index.module.css';
+import styles from './index.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import clsx from 'clsx';
-
-import SideBarNewArticle from '@/app/components/layouts/Sidebar/NewArticle';
-import SideBarCategoryList from '@/app/components/layouts/Sidebar/CategoryList';
-
-import { getNewsList } from '@/app/_libs/microcms';
-import { format } from 'date-fns';
 
 import FvSub from '@/app/components/layouts/Fv/Sub';
 import Breadcrumb from '@/app/components/layouts/Breadcrumb';
 import Cta from '@/app/components/layouts/Cta';
 
-export default async function Page() {
-  const data = await getNewsList();
+import SideBarNewArticle from '@/app/components/layouts/Sidebar/NewArticle';
+import SideBarCategoryList from '@/app/components/layouts/Sidebar/CategoryList'
 
+import { getNewsList } from '@/app/_libs/microcms';
+import { format } from 'date-fns';
+
+export default async function page() {
+	const data = await getNewsList();
   const breadcrumbItems = [{ text: 'ホーム', href: '/' }, { text: 'ニュース' }];
-
   return (
     <main>
       <FvSub
@@ -39,14 +37,16 @@ export default async function Page() {
                   data.contents.map((item) => (
                     <article key={item.id} className={styles.box}>
                       <Link
-                        className={styles.boxInner}
                         href={`/news/${item.id}`}
+                        className={styles.boxInner}
                       >
                         <div className={styles.body}>
                           <h3 className={styles.heading3}>{item.title}</h3>
                           <div className={styles.head}>
                             <div className={styles.categoryWrap}>
-                              <p className={styles.category}>{item.category}</p>
+                              <p className={styles.category}>
+                                {item.category?.name || '未分類'}
+                              </p>
                             </div>
                             <time
                               dateTime={item.publishedAt || ''}

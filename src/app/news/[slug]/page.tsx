@@ -41,7 +41,9 @@ export default async function Page({ params }: PageProps) {
             <div className={styles.head}>
               <h1 className={styles.heading1}>{data.title}</h1>
               <div className={styles.categoryWrap}>
-                <p className={styles.category}>{data.category}</p>
+                <p className={styles.category}>
+                  {data.category?.name || '未分類'}
+                </p>
                 <time dateTime={data.publishedAt || ''} className={styles.date}>
                   {data.publishedAt
                     ? format(new Date(data.publishedAt), 'yyyy.MM.dd')
@@ -53,7 +55,7 @@ export default async function Page({ params }: PageProps) {
               {data.image && (
                 <Image
                   className={styles.image}
-                  src={data.image.url}
+                  src={data.image?.url || '/img/index/news/news_dummy.png'}
                   width={760}
                   height={475}
                   alt={data.title}

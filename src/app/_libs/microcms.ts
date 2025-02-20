@@ -6,10 +6,10 @@ import type {
   MicroCMSListContent,
 } from 'microcms-js-sdk';
 
-
+// ✅ ニュース
 export type News = {
   title: string;
-  category: string;
+  category: NewsCategory;
   heading2: string;
   heading2Text: string;
   heading3: string;
@@ -19,9 +19,10 @@ export type News = {
   image: MicroCMSImage;
 } & MicroCMSListContent;
 
+// ✅ カテゴリー
 export type NewsCategory = {
   id: string;
-  category: string;
+  name: string;
 };
 
 if (!process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN) {
@@ -46,14 +47,6 @@ export const getNewsList = async (queries?: MicroCMSQueries) => {
   return listData;
 };
 
-// ✅ ニュース一のカテゴリーの取得
-export const getCategoryList = async () => {
-  const listData = await client.getList<NewsCategory>({
-    endpoint: 'news', // ✅ MicroCMS で作成したカテゴリーのエンドポイント
-  });
-  return listData;
-};
-
 // ✅ ニュース詳細記事の取得
 export const getNewsDetail = async (
   contentId: string,
@@ -66,4 +59,3 @@ export const getNewsDetail = async (
   });
   return detailData;
 };
-
