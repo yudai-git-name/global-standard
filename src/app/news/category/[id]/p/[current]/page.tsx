@@ -12,25 +12,35 @@ import SideBarNewArticle from '@/app/components/layouts/Sidebar/NewArticle';
 import SideBarCategoryList from '@/app/components/layouts/Sidebar/CategoryList';
 import Pagination from '@/app/components/layouts/Pagination';
 
-import { getNewsList } from '@/app/_libs/microcms';
+import { getNewsList, getCategoryDetail } from '@/app/_libs/microcms';
 import { format } from 'date-fns';
 import { notFound } from 'next/navigation';
 import { NEWS_LIST_LIMIT } from '@/app/_contents';
 
 type Props = {
   params: {
+    id: string;
     current: string;
   };
 };
 
 export default async function Page({ params }: Props) {
-  const current = parseInt(params.current, 10); // ✅ 10進数で整数変換
+  const categoryId = decodeURIComponent(params.id);
+  const current = parseInt(params.current, 10);
 
   if (Number.isNaN(current) || current < 1) {
     notFound();
   }
 
+  // ✅ カテゴリー情報を取得
+  const category = await getCategoryDetail(categoryId).catch(() => notFound());
+
+  // ✅ `category` が取得できた場合のみ名前をセット
+  const categoryName = category ? category.name : '不明なカテゴリ';
+
+  // ✅ ニュースリストの取得
   const { contents: news, totalCount } = await getNewsList({
+    filters: `category[equals]${categoryId}`,
     limit: NEWS_LIST_LIMIT,
     offset: NEWS_LIST_LIMIT * (current - 1),
   });
@@ -39,7 +49,11 @@ export default async function Page({ params }: Props) {
     notFound();
   }
 
-  const breadcrumbItems = [{ text: 'ホーム', href: '/' }, { text: 'ニュース' }];
+  const breadcrumbItems = [
+    { text: 'ホーム', href: '/' },
+    { text: 'ニュース', href: '/news' },
+    { text: `${categoryName} のニュース` },
+  ];
 
   return (
     <main>
@@ -55,7 +69,7 @@ export default async function Page({ params }: Props) {
         <section className={styles.news}>
           <div className={styles.inner}>
             <div className={styles.content}>
-              <h2 className={styles.heading2}>ニュース一覧</h2>
+              <h2 className={styles.heading2}>{categoryName} のニュース</h2>
               <div className={styles.boxes}>
                 {news.length > 0 ? (
                   news.map((item) => (
@@ -101,11 +115,16 @@ export default async function Page({ params }: Props) {
                     </article>
                   ))
                 ) : (
-                  <p>ニュース記事がありません。</p>
+                  <p>このカテゴリにはニュース記事がありません。</p>
                 )}
               </div>
             </div>
-            <Pagination totalCount={totalCount} current={current} />
+            {/* ✅ `totalCount` を適切に渡す */}
+            <Pagination
+              totalCount={totalCount}
+              current={current}
+              basePath={`/news/category/${categoryId}`}
+            />
           </div>
         </section>
 

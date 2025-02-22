@@ -5,11 +5,11 @@ import { NEWS_LIST_LIMIT } from '@/app/_contents';
 
 type Props = {
   totalCount: number;
-  current: number;
+  current?: number;
   basePath?: string; // ✅ `basePath` をオプションに変更
 };
 
-export default function Pagenation({
+export default function Pagination({
   totalCount,
   current = 1,
   basePath = '/news',
@@ -20,7 +20,7 @@ export default function Pagenation({
   );
 
   return (
-    <div className={styles.pagenation}>
+    <div className={styles.pagination}>
       <ul className={styles.list}>
         {pages.map((p) => (
           <li key={p} className={styles.item}>

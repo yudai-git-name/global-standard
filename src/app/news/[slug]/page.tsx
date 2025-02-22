@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { format } from 'date-fns';
 
-import { getNewsDetail } from '@/app/_libs/microcms'; // ✅ MicroCMS のデータ取得関数をインポート
+import { getNewsDetail } from '@/app/_libs/microcms';
 import FvSub from '@/app/components/layouts/Fv/Sub';
 import Breadcrumb from '@/app/components/layouts/Breadcrumb';
 import Cta from '@/app/components/layouts/Cta';

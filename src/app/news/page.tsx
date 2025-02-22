@@ -10,7 +10,7 @@ import Cta from '@/app/components/layouts/Cta';
 
 import SideBarNewArticle from '@/app/components/layouts/Sidebar/NewArticle';
 import SideBarCategoryList from '@/app/components/layouts/Sidebar/CategoryList';
-import Pagenation from '@/app/components/layouts/Pagenation';
+import Pagination from '@/app/components/layouts/Pagination';
 
 import { getNewsList } from '@/app/_libs/microcms';
 import { format } from 'date-fns';
@@ -88,7 +88,7 @@ export default async function Page() {
                 )}
               </div>
             </div>
-            <Pagenation totalCount={totalCount} />
+            <Pagination totalCount={totalCount} />
           </div>
         </section>
         <div className={styles.sideBArWrap}>

@@ -1,0 +1,45 @@
+.contact {
+	margin-top: 80px;
+	margin-bottom: 160px;
+}
+
+.inner {
+
+}
+
+.head {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.heading2 {
+	margin-top: 80px;
+	text-align: center;
+	font-size: 24px;
+	line-height: calc(34.75 / 24);
+	font-weight: 700;
+}
+
+.text {
+
+}
+
+.formBox {
+	margin-top: 60px;
+}
+
+@media (max-width: 599px) {
+
+	.contact {
+		margin-top: 60px;
+		margin-bottom: 100px;
+	}
+
+	.heading2 {
+		margin-top: 60px;
+	}
+
+	.formBox {
+		margin-top: 40px;
+	}
+}

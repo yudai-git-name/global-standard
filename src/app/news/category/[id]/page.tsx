@@ -10,11 +10,12 @@ import Cta from '@/app/components/layouts/Cta';
 
 import SideBarNewArticle from '@/app/components/layouts/Sidebar/NewArticle';
 import SideBarCategoryList from '@/app/components/layouts/Sidebar/CategoryList';
-import Pagenation from '@/app/components/layouts/Pagenation';
 
-import { getNewsList } from '@/app/_libs/microcms';
+import { notFound } from 'next/navigation';
+import { getNewsList, getCategoryDetail } from '@/app/_libs/microcms';
 import { format } from 'date-fns';
 import { NEWS_LIST_LIMIT } from '@/app/_contents';
+import Pagination from '@/app/components/layouts/Pagination';
 
 type PageProps = {
   params: { id: string };
@@ -23,13 +24,22 @@ type PageProps = {
 export default async function Page({ params }: PageProps) {
   const categoryId = decodeURIComponent(params.id);
 
+  // ✅ カテゴリー情報を取得
+  const category = await getCategoryDetail(categoryId).catch(() => notFound());
+
+  // ✅ `category` が正しく取得できたら、その値を使用
+  const categoryName = category ? category.name : '不明なカテゴリ';
+
+  // ✅ ニュースリストの取得（`totalCount` を取得）
   const { contents: news, totalCount } = await getNewsList({
     limit: NEWS_LIST_LIMIT,
     filters: `category[equals]${categoryId}`,
   });
 
-  const categoryName =
-    news.length > 0 ? news[0].category.name : '不明なカテゴリ';
+  // ✅ `totalCount` が未定義の場合の処理
+  if (typeof totalCount === 'undefined') {
+    notFound();
+  }
 
   const breadcrumbItems = [
     { text: 'ホーム', href: '/' },
@@ -83,11 +93,11 @@ export default async function Page({ params }: PageProps) {
                         </div>
                         <div className={styles.imageWrap}>
                           <Image
+                            className={styles.image}
                             src={
                               item.image?.url ||
                               '/img/index/news/news_dummy.png'
                             }
-                            className={styles.image}
                             width={250}
                             height={156}
                             alt={item.title}
@@ -101,8 +111,11 @@ export default async function Page({ params }: PageProps) {
                 )}
               </div>
             </div>
-            <Pagenation totalCount={totalCount}  basePath={`/news/category/${params.id}`} />
-
+            {/* ✅ `totalCount` を正しく渡す */}
+            <Pagination
+              totalCount={totalCount}
+              basePath={`/news/category/${category.id}`}
+            />
           </div>
         </section>
 
