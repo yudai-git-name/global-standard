@@ -1,5 +1,11 @@
 .header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: var(--bgColorPrimary);
 	height: 100px;
+	z-index: 999;
 }
 
 .inner {
@@ -81,6 +87,10 @@
 .contact {
 	background-color: var(--bgColorTertiary);
 	color: var(--textColorSecondary);
+}
+
+.drawerButtonWrap {
+	position: relative;
 }
 
 @media (max-width: 1220px) {

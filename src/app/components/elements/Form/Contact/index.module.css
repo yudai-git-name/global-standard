@@ -33,7 +33,8 @@
 }
 
 .formText,
-.formTextArea {
+.formTextArea,
+.formSelect {
 	width: 100%;
 	padding: 10px 16px;
 	background-color: var(--bgColorPrimary);
@@ -42,7 +43,8 @@
 }
 
 .formText::placeholder,
-.formTextArea::placeholder {
+.formTextArea::placeholder,
+.formSelect::placeholder {
 	font-size: 16px;
 	line-height: calc(23.17 / 16);
 	color: var(--textColorOctonary);
@@ -53,6 +55,26 @@
 .formTextArea {
 	height: 240px;
 	resize: vertical;
+}
+
+.formFieldItemSelect {
+	position: relative;
+}
+
+.formSelect {
+	color: var(--textColorOctonary);
+}
+
+.formFieldItemSelect::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) rotate(-45deg);
+	right: 15px;
+	width: 10px;
+	height: 10px;
+	border-left: 2px solid var(--borderColorQuaternary);
+	border-bottom: 2px solid var(--borderColorQuaternary);
 }
 
 .privacy {
@@ -112,6 +134,11 @@
 
 .formCheckboxInput:checked+.formCheckboxText::after {
 	opacity: 1;
+}
+
+.link {
+	text-decoration: underline;
+	text-underline-offset: 2px;
 }
 
 .buttonWrap {
@@ -183,3 +210,4 @@
 		padding-block: 26px;
 	}
 }
+

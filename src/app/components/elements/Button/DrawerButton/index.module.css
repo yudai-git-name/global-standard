@@ -1,0 +1,51 @@
+.drawerButton {
+	width: 27px;
+	height: 2px;
+	background-color: var(--bgColorTertiary);
+	position: relative;
+	z-index: 100;
+	display: none;
+}
+
+.drawerButtonBar::before,
+.drawerButtonBar::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background-color: var(--bgColorTertiary);
+	transition: 0.3s ease-in-out;
+}
+
+.drawerButtonBar::before {
+	top: -8px;
+}
+
+.drawerButtonBar::after {
+	bottom: -8px;
+}
+
+.drawerButton.open {
+	height: 0;
+}
+
+.drawerButton.open .drawerButtonBar {
+	background: transparent;
+}
+
+.drawerButton.open .drawerButtonBar::before {
+	top: 50%;
+	transform: rotate(45deg) translateY(-50%);
+}
+
+.drawerButton.open .drawerButtonBar::after {
+	bottom: 50%;
+	transform: rotate(-45deg) translateY(50%);
+}
+
+@media (max-width: 1220px) {
+
+	.drawerButton {
+		display: block;
+	}
+}

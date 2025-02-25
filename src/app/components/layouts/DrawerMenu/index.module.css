@@ -1,0 +1,76 @@
+.drawerMenu {
+	position: fixed;
+	top: 100px;
+	left: 0;
+	width: 100%;
+	height: 100svh;
+	background-color: var(--bgColorTertiary);
+	z-index: 999;
+	padding-top: 60px;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.drawerMenu.open {
+	opacity: 1;
+	visibility: visible;
+}
+
+.inner {}
+
+.nav {}
+
+.items {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	color: var(--textColorSecondary);
+	text-align: center;
+}
+
+.item {}
+
+.itemLink {
+	font-size: 16px;
+	line-height: calc(23.17 / 16);
+}
+
+.buttons {
+	margin-top: 40px;
+	max-width: 295px;
+	width: 100%;
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.buttonWrap {
+	width: 100%;
+}
+
+.button {
+	width: 100%;
+	text-align: center;
+	font-size: 16px;
+	line-height: calc(23.17 / 16);
+	padding-block: 22px;
+}
+
+.download {
+	background-color: var(--bgColorTertiary);
+	color: var(--textColorSecondary);
+	border: 1px solid var(--borderColorSecondary);
+}
+
+.contact {
+	background-color: var(--bgColorPrimary);
+	color: var(--textColorTertiary);
+}
+
+@media (max-width: 599px) {
+
+	.drawerMenu {
+		top: 60px;
+	}
+}

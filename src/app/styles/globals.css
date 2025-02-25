@@ -48,10 +48,25 @@ button {
 	user-select: none;
 }
 
+option {
+	color: var(--textColorOctonary);
+}
+
 summary {
 	list-style: none;
 }
 
 summary::-webkit-details-marker {
 	display: none;
+}
+
+main {
+	padding-top: 100px;
+}
+
+@media (max-width: 599px) {
+
+	main {
+		padding-top: 60px;
+	}
 }

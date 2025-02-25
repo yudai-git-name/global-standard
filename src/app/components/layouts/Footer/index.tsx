@@ -1,14 +1,16 @@
-import { useMetadata } from '@/app/layout';
 import React from 'react';
 import styles from './index.module.css';
 
-export default function Footer() {
-  const { title } = useMetadata();
+type FooterProps = {
+  title: string;
+};
+
+export default function Footer({ title }: FooterProps) {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.content}>
-          <p className={styles.title}>{String(title)}</p>
+          <p className={styles.title}>{title}</p>
           <p className={styles.address}>
             〒550-1000　大阪市西区土佐堀9-5-5
             <br />

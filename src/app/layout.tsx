@@ -36,22 +36,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="ja">
       <body
         className={`${notoSansJP.variable} ${firaSans.variable} ${roboto.variable}`}
       >
-        <Header />
+        <Header title={metadata.title as string} />
         {children}
-				<Footer />
+        <Footer title={metadata.title as string} />
       </body>
     </html>
   );
-}
-
-export function useMetadata() {
-  return metadata;
 }
